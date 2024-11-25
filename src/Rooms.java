@@ -1,17 +1,20 @@
+import java.util.HashMap;
+import java.io.Serializable;
+public class Rooms implements Serializable {
 
-public class Rooms {
-
-	private String description;
+	private String name;
 	private Rooms east;
 	private Rooms west;
 	private Rooms north;
 	private Rooms south;
 	private Rooms up;
 	private Rooms down;
+	private HashMap<String, item> items= new HashMap<String,item>();
+	private boolean lock;
 	
-	public Rooms (String d) {
-			description = d;		
-	}// end of constructor
+	public Rooms (String name) {
+		 this.name= name;
+	}
 	public Rooms getExit(char direction){
 		if(direction== 'e'){
 			return east;
@@ -38,7 +41,6 @@ public class Rooms {
 	public void addExit(Rooms object, char direction){
 		if(direction== 'e'){
 			east=object;
-			
 		}//
 		else if(direction== 'w'){
 			west=object;
@@ -57,7 +59,40 @@ public class Rooms {
 		}//down
 	}//set method
 	public String toString() {
-		return description;
+		String k = this.getDescription(name);
+		return k;
 	}//special method
 	
+	public void additem(String name, item i) {
+		items.put(name, i);
+	}
+	public item getitem(String name) {
+		return items.get(name);
+	}
+	public void  removeItem(String name) {
+		items.remove(name);
+	}
+	public boolean getlock() {
+		return lock;	
+	}
+	public void setlock(boolean bool){
+		lock=bool;
+	}
+	
+public String getRoomname(){
+	return name;
+}
+	public void setRoomname(String name) {
+		this.name=name;
+	}
+	public String getDescription(String n) {
+		for(String s: game.Rooms.keySet()) {
+			if(s.equals(n)) {
+				return game.Rooms.get(s);
+			}
+		}
+		return null;
+	}
 }// end of class
+
+
