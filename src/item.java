@@ -1,4 +1,5 @@
-public class item extends game {
+import java.io.Serializable;
+public class item implements Serializable{
 	private String name;
 	private String description;
 	public item(String name, String description) {

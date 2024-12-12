@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.io.Serializable;
+
 public class Rooms implements Serializable {
 
 	private String name;
@@ -10,10 +11,13 @@ public class Rooms implements Serializable {
 	private Rooms up;
 	private Rooms down;
 	private HashMap<String, item> items= new HashMap<String,item>();
+	private HashMap<String,NPC> NPC = new HashMap<String,NPC>();
+	
 	private boolean lock;
 	
 	public Rooms (String name) {
 		 this.name= name;
+		 game.roomObjects.put(name,this);
 	}
 	public Rooms getExit(char direction){
 		if(direction== 'e'){
@@ -78,7 +82,15 @@ public class Rooms implements Serializable {
 	public void setlock(boolean bool){
 		lock=bool;
 	}
-	
+	public void addNPC(String name,NPC x){
+		NPC.put(name,x);
+	}
+	public NPC getNPC(String name){
+		return NPC.get(name);
+	}
+	public void removeNPC(String name){
+		NPC.remove(name);
+	}	
 public String getRoomname(){
 	return name;
 }

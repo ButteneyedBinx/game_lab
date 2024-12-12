@@ -10,9 +10,11 @@ public class safe extends item{
 			game.print("The safe is locked idiot");
 		}
 		else { 
-			game.print("THE CODE WORKED!!! looks like another key...");
-			item blackkey = new item ("A black key ", "hmmm I wonder what this goes to");
-			game.inventory.add(blackkey);
+			game.print("THE CODE WORKED!!! looks like a key and a pickle...");
+			key key = new key ("A key ", "hmmm I wonder what this unlocks...");
+			item pickletoy= new item ("A pickle Toy"," a small  stuffed pickle filled with catnip");
+			game.inventory.add(key);
+			game.inventory.add(pickletoy);
 		}
 	}
 }

@@ -4,19 +4,24 @@ import java.util.HashMap;
 import java.io.*;
 
 public class game {
-	static Rooms currentRoom = World.buildWorld();
+	public static void main (String[]args) {
+		textFile();
+		gui = new GUI();
+		game.print(currentRoom);
+	}
+	private static GUI gui = new GUI();
 	static ArrayList<item> inventory = new ArrayList<item>();
 	static HashMap<String, String> Rooms = new HashMap<String, String>();
 	static HashMap<String, Rooms> roomObjects = new HashMap<String, Rooms>();
-
-	public static void main(String[] args) {
-		textFile();
-		runGame();
+	public static Scanner scanner = new Scanner(System.in);
+		public static void print (Object obj) {
+			gui.textArea.append((obj.toString())+"\n");
+	}
+	static Rooms currentRoom = World.buildWorld();
+	public static Rooms getCurrentRoom() {
+		return currentRoom;
 	}
 
-	public static void print(Object obj) {
-		System.out.println(obj.toString());
-	}
 
 	public static Rooms getcurrentroom() {
 		return currentRoom;
@@ -82,14 +87,7 @@ public class game {
 			System.out.println("Not an object.");
 		}
 	}
-
-	public static void runGame() {
-		Scanner scanner = new Scanner(System.in);
-		String command;
-		do {
-			System.out.println(currentRoom);
-			System.out.print("where do you want to go?:");
-			command = scanner.nextLine();
+	public static void processCommand(String command) {
 			String[] words = command.split("");
 			switch (words[0]) {
 			case "e":
@@ -100,7 +98,7 @@ public class game {
 			case "d":
 				Rooms nextRoom = currentRoom.getExit(command.charAt(0));
 				if (nextRoom == null) {
-					System.out.println("you can't go that way.");
+					game.print("you can't go that way.");
 				} else if (nextRoom.getlock() == true) {
 					System.out.println("The door is locked.");
 				} else {
@@ -167,18 +165,28 @@ public class game {
 						System.out.println();
 					}
 				}
+			case "talk":
+				game.print("you are trying to talk to the"+words[1]+".");
+				 	if (currentRoom.getNPC(words[1])!= null) {
+				 		currentRoom.getNPC(words[1]).talk();
+				 		game.print("\n");
+				 	}
+				 	else{
+				 		game.print("there is no such thing\n");
+				 	}		
+			break;
 			case "save":
 				saveList(words[1]);
+				break;
 
 			case "load":
 				loadList(words[1]);
+				break;
 
 			default:
 				System.out.println("Invaid. Please try agian.");
 
 			}
 
-		} while (!command.equals("x"));
-		scanner.close();
 	}
 }
