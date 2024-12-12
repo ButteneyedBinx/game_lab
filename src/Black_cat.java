@@ -12,7 +12,7 @@ public class Black_cat extends NPC{
 		if (talkCount==0) {
 			say("what are you doing here?");
 			String[] options= {
-					"Im feeding my wierd freinds cats",
+					"Im cleaning up after my wierd freinds cats",
 					"none of your business",
 			};
 			getResponse(options);

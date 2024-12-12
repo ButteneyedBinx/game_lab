@@ -11,7 +11,7 @@ public class Cat extends NPC {
 		
 		if(talkCount==0) {
 			
-			say("Hi! do you haave any food?");
+			say("Hi! do you have any food?");
 			String[] options= { 
 					"No, Im sorry",
 					"No, but I can try to find some"

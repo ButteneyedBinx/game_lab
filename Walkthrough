@@ -1,5 +1,49 @@
 1. Start in the Living Room (Room 1)
-objective:
--
--
--
+objective:talk to cat NPC
+- start a conversation with the cat
+- Cat speaks
+Conversation options 
+ -chose one of the two options
+ -when the conversation ends  go  North to the balcony
+  
+  2. go on to the balcony
+  Objective: get string toy and come inside
+  - take the item 
+  - then go south into the living room
+  - after the living room go east into the kitchen.
+  
+  3. enter the kitchen
+  Objective:get the cat treats
+  - take the cat treats
+  - then go west into the living room
+ - after that go to the south bathroom
+ 
+ 4. enter the bathroom
+ objective: find the code and ball
+-  take the code and the ball
+ - then go north into the living room
+ - after that go west to the bedroom
+ 
+ 5.enter the bedroom
+ objective: use the safe and grab the items inside
+ - use the code on the safe 
+ - take the pickle toy and key from the safe 
+ -take the mouse toy
+ - go East to the kitchen 
+ - after that go down to the BASEMENT
+ 
+ 6. enter the basement
+ objective: talk to the black cat and find the cible.
+ - start a conversation with the black cat.
+ cat speaks 
+ conversation options
+ - chose one of the two options.
+ -take the Cible
+ - go back up stairs to the living room
+ 
+ 7. end of game
+ objective:put all the items into the living room
+ - put the items in the living room
+ - you have completed the game by putting all the items in living room
+ 
+

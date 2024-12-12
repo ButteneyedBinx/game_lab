@@ -39,7 +39,6 @@ public class World {
 	Bedroom.addExit(livingRoom,'e');
 	Bedroom.additem("mouse toy", mousetoy);
 	Bedroom.additem("safe",safe);
-	Bedroom.setlock(true);
 	
 	Balcony.addExit(livingRoom,'s');
 	Balcony.additem("string toy", stringtoy);
