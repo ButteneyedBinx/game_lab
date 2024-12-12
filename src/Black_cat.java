@@ -29,7 +29,7 @@ public class Black_cat extends NPC{
 			say("what do you want");
 			talkCount++;
 		}
-		
+		///
 	}
 	@Override
 	public void response(int option) {
